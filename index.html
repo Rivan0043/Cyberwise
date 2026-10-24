@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberWise — Simulator Deteksi Hoaks & Penipuan Digital</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVIGASI UTAMA -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="brand">
+                <span class="brand-icon">🛡️</span>
+                <span class="brand-text">Cyber<span class="highlight">Wise</span></span>
+                <span class="badge-v">v3.0 Final</span>
+            </div>
+            <nav class="nav-links">
+                <button class="nav-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="nav-btn" data-tab="simulator">Simulasi Kasus</button>
+                <button class="nav-btn" data-tab="checker">Text Detector</button>
+                <button class="nav-btn" data-tab="achievements">Pencapaian</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main class="container main-content">
+
+        <!-- TAB 1: DASHBOARD -->
+        <section id="tab-dashboard" class="tab-pane active">
+            <div class="hero-card">
+                <div class="hero-text">
+                    <h1>Mengenali Jebakan Digital Sebelum Menjadi Korban.</h1>
+                    <p>Uji kewaspadaan sibermu melalui simulasi interaktif pesan phishing, hoaks, dan rekayasa sosial dalam lingkungan yang aman.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary" onclick="switchTab('simulator')">🚀 Mulai Simulasi Sekarang</button>
+                        <button class="btn btn-secondary" onclick="switchTab('checker')">🔍 Uji Teks / Pesan</button>
+                    </div>
+                </div>
+                <div class="hero-stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-number" id="dash-score">0</span>
+                        <span class="stat-label">Skor Literasi</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="dash-completed">0/4</span>
+                        <span class="stat-label">Kasus Selesai</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" id="dash-accuracy">0%</span>
+                        <span class="stat-label">Akurasi Jawaban</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RINGKASAN FITUR -->
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="f-icon">💬</div>
+                    <h3>Simulasi Chat Realistis</h3>
+                    <p>Latih ketelitianmu mendeteksi kejanggalan pada WhatsApp, SMS, dan Email fiktif dengan teknik Click-to-Inspect.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">🧮</div>
+                    <h3>Algoritma Risk Score</h3>
+                    <p>Analisis teks mencurigakan dengan kalkulasi tingkat risiko berdasarkan indikator bahaya siber.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="f-icon">📜</div>
+                    <h3>Sertifikat Digital HD</h3>
+                    <p>Selesaikan seluruh modul simulasi untuk mengklaim sertifikat kompetensi Literasi Digital bertanda tangan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: SIMULATOR KASUS -->
+        <section id="tab-simulator" class="tab-pane">
+            <div class="section-header">
+                <h2>📱 Interactive Case Simulator</h2>
+                <p>Klik elemen mencurigakan pada pesan di bawah untuk melakukan inspeksi sebelum memilih tindakan!</p>
+            </div>
+
+            <div class="simulator-wrapper">
+                <!-- PANEL CHAT / EMAIL MOCKUP -->
+                <div class="mockup-container">
+                    <div class="mockup-header" id="case-app-bar">
+                        <span class="status-dot"></span>
+                        <span id="case-sender-name">Pesan Masuk</span>
+                        <span class="case-level-tag" id="case-difficulty-tag">Level 1</span>
+                    </div>
+                    <div class="mockup-body" id="case-message-body">
+                        <!-- Konten pesan dirender dinamis via JavaScript -->
+                    </div>
+                    <div class="inspect-hint">💡 *Petunjuk: Klik pada area bergaris putus-putus di atas untuk menguji keabsahannya!*</div>
+                </div>
+
+                <!-- PANEL INTERAKSI / PILIHAN JAWABAN -->
+                <div class="interaction-container">
+                    <div class="case-info-box">
+                        <h3 id="case-title">Memuat Kasus...</h3>
+                        <p id="case-description">Silakan tunggu data skenario diubah.</p>
+                    </div>
+
+                    <div class="inspection-feed" id="inspection-feedback">
+                        <span class="feed-placeholder">Belum ada elemen yang diinspeksi. Klik area pesan di sebelah kiri!</span>
+                    </div>
+
+                    <div class="options-group" id="options-container">
+                        <!-- Tombol Pilihan Jawaban dirender dinamis -->
+                    </div>
+
+                    <div class="explanation-box hidden" id="explanation-box">
+                        <div class="exp-header" id="exp-status">HASIL EVALUASI</div>
+                        <p id="exp-text"></p>
+                        <button class="btn btn-accent" id="next-case-btn" onclick="nextCase()">Kasus Selanjutnya ➔</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TEXT CHECKER -->
+        <section id="tab-checker" class="tab-pane">
+            <div class="section-header">
+                <h2>🔍 Suspicious Text & URL Checker</h2>
+                <p>Tempelkan (paste) teks pesan atau tautan mencurigakan untuk menganalisis indikator risikonya secara sistematis.</p>
+            </div>
+
+            <div class="checker-layout">
+                <div class="input-panel">
+                    <label for="checker-input">Masukkan Teks Pesan atau URL:</label>
+                    <textarea id="checker-input" rows="7" placeholder="Contoh: Selamat! Nomor Anda terpilih mendapatkan hadiah 50 juta rupiah. Klik http://bit.ly/klaim-hadiah-sekarang..."></textarea>
+                    <button class="btn btn-primary" onclick="analyzeText()">⚡ Analisis Tingkat Risiko</button>
+                </div>
+
+                <div class="result-panel hidden" id="checker-result">
+                    <div class="score-gauge">
+                        <div class="score-circle" id="score-circle">
+                            <span id="risk-score-value">0%</span>
+                        </div>
+                        <div class="score-label-box">
+                            <h3 id="risk-level-label">Tingkat Risiko: Aman</h3>
+                            <p id="risk-summary">Tidak ditemukan indikator bahaya yang bermakna.</p>
+                        </div>
+                    </div>
+
+                    <div class="indicators-list">
+                        <h4>Atribut Risiko Terdeteksi:</h4>
+                        <ul id="indicators-ul">
+                            <!-- List indikator terdeteksi -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: ACHIEVEMENTS & CERTIFICATE -->
+        <section id="tab-achievements" class="tab-pane">
+            <div class="section-header">
+                <h2>🏆 Papan Pencapaian & Sertifikat</h2>
+                <p>Pantau koleksi lencana kewaspadaanmu dan klaim Sertifikat Kompetensi Digital milikmu.</p>
+            </div>
+
+            <div class="badges-grid" id="badges-container">
+                <!-- Badges dirender via JS -->
+            </div>
+
+            <div class="certificate-section">
+                <h3>📜 Klaim Sertifikat Kewaspadaan Siber</h3>
+                <p>Selesaikan seluruh skenario simulasi untuk membuka opsi pengunduhan sertifikat resmi atas namamu.</p>
+                <div class="cert-actions">
+                    <input type="text" id="cert-user-name" placeholder="Masukkan Nama Lengkap Anda..." class="cert-input">
+                    <button class="btn btn-primary" id="btn-generate-cert" onclick="generateCertificate()">🎨 Generasi Sertifikat HD</button>
+                </div>
+                <div class="canvas-wrapper hidden" id="canvas-wrapper">
+                    <canvas id="cert-canvas" width="1200" height="840"></canvas>
+                    <br>
+                    <a id="download-cert-btn" class="btn btn-accent" download="Sertifikat_CyberWise.png">💾 Unduh Sertifikat (PNG)</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 <strong>CyberWise Project</strong>. Developed for Digital Literacy Competition & Open Source Showcase.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
