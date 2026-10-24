@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "sender": "Bank Central (SMS)",
+    "title": "Kasus 1: Peringatan Pembekuan Rekening",
+    "description": "Pesan SMS masuk mengaku dari pihak bank dan meminta tindakan instan.",
+    "messageHtml": "<div class='chat-bubble'><p><strong>[SMS]</strong> Peringatan! Rekening Anda <span class='inspect-target' onclick='inspectElement(\"Peringatan\", \"Rekening Terblokir\", \"Menciptakan rasa panik mendadak agar korban tidak berpikir jernih.\")'>akan dibekukan dalam 1x24 jam</span> karena aktivitas mencurigakan. Segera verifikasi data di: <span class='inspect-target' onclick='inspectElement(\"Tautan\", \"bit.ly/bank-aman-id\", \"DOMAIN PALSU! Bank resmi tidak menggunakan penyingkat bit.ly.\")'>http://bit.ly/bank-aman-id</span></p></div>",
+    "options": [
+      { "text": "Klik tautan bit.ly untuk langsung mengamankan akun" },
+      { "text": "Abaikan SMS dan periksa status via aplikasi resmi Bank" },
+      { "text": "Balas SMS meminta bantuan customer service" }
+    ],
+    "correctIndex": 1,
+    "explanation": "Tepat sekali! Bank resmi TIDAK PERNAH mengirimkan tautan verifikasi menggunakan penyingkat URL anonim (seperti bit.ly) melalui SMS."
+  },
+  {
+    "id": 2,
+    "level": 2,
+    "sender": "HRD Perusahaan (Email)",
+    "title": "Kasus 2: Tawaran Kerja & Undangan Interview",
+    "description": "Email panggilan kerja menarik dengan lampiran file berkestensi asing.",
+    "messageHtml": "<div class='chat-bubble'><p><strong>Pengirim:</strong> hr-recruitment@<span class='inspect-target' onclick='inspectElement(\"Pengirim\", \"gmail.com\", \"Perusahaan profesional menggunakan domain email resmi milik sendiri, bukan @gmail.com!\")'>gmail.com</span></p><p>Selamat! Anda lolos seleksi berkas. Silakan unduh dokumen jadwal interview berikut: <span class='inspect-target' onclick='inspectElement(\"File\", \"Surat_Panggilan.pdf.exe\", \"EKSTENSI BAHAYA! Akhiran .exe adalah file program berbahaya/malware!\")'>Surat_Panggilan.pdf.exe</span></p></div>",
+    "options": [
+      { "text": "Unduh dan jalankan file Surat_Panggilan.pdf.exe" },
+      { "text": "Hapus email karena adanya kombinasi domain publik & ekstensi .exe" },
+      { "text": "Meneruskan email ke teman untuk minta pendapat" }
+    ],
+    "correctIndex": 1,
+    "explanation": "Hebat! File berakhiran .exe yang menyamar sebagai dokumen PDF adalah teknik ganda pencurian data (*malware executable*)."
+  },
+  {
+    "id": 3,
+    "level": 3,
+    "sender": "Komunitas Berita (WhatsApp)",
+    "title": "Kasus 3: Penyebaran Berita Sensasional",
+    "description": "Pesan berantai berisikan klaim mengejutkan tanpa cantuman sumber rujukan.",
+    "messageHtml": "<div class='chat-bubble'><p><strong>[WA Forwarded]</strong> <span class='inspect-target' onclick='inspectElement(\"Judul\", \"SEBARKAN!! Waspada Vaksin Baru\", \"Judul provokatif dengan huruf kapital berlebihan mengindikasikan hoaks.\")'>SEBARKAN SECEPATNYA!!</span> Ada kebocoran radiasi di kota X. Pemerintah menyembunyikan hal ini! Cek selengkapnya di blog <span class='inspect-target' onclick='inspectElement(\"Sumber\", \"berita-heboh-terpercaya.blogspot.com\", \"Bukan situs berita resmi berbadan hukum.\")'>berita-heboh-terpercaya.blogspot.com</span></p></div>",
+    "options": [
+      { "text": "Langsung meneruskan ke seluruh grup WhatsApp keluarga" },
+      { "text": "Memeriksa kebenaran berita di situs cek fakta resmi (seperti TurnBackHoax / CekFakta)" },
+      { "text": "Mengomentari pesan dengan marah" }
+    ],
+    "correctIndex": 1,
+    "explanation": "Sangat baik! Berita provokatif dari blog gratisan wajib diverifikasi melalui platform konsorsium cek fakta terpercaya sebelum disebar."
+  },
+  {
+    "id": 4,
+    "level": 4,
+    "sender": "Layanan Pelanggan (Instagram DM)",
+    "title": "Kasus 4: Pengambilalihan Akun (Account Takeover)",
+    "description": "Pesan DM dari akun centang biru palsu meminta Kode OTP.",
+    "messageHtml": "<div class='chat-bubble'><p>Halo Kak! Akun kamu terpilih mendapatkan badge centang biru gratis. Kami telah mengirimkan <span class='inspect-target' onclick='inspectElement(\"Kredensial\", \"6-digit Kode OTP\", \"KODE OTP ADALAH RAHASIA KUNCI AKUN! Jangan pernah dibagikan kepada siapa pun!\")'>6-digit kode verifikasi SMS</span>. Tolong kirimkan kodenya di sini untuk proses aktivasi.</p></div>",
+    "options": [
+      { "text": "Kirimkan kode OTP agar bisa mendapat centang biru" },
+      { "text": "Laporkan akun tersebut dan jangan pernah berikan kode OTP" },
+      { "text": "Memberikan password akun sebagai gantinya" }
+    ],
+    "correctIndex": 1,
+    "explanation": "Sempurna! Kode OTP (*One-Time Password*) adalah rahasia pribadi yang tidak boleh dibagikan kepada siapa pun, termasuk pihak yang mengaku petugas."
+  }
+]
