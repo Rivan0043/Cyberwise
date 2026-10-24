@@ -544,3 +544,24 @@ textarea {
         gap: 0.8rem;
     }
 }
+/* ==========================================================================
+   OPTIMALISASI TAMPILAN HP (MOBILE MICRO-POLISH)
+   ========================================================================== */
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+    }
+    .inspect-target {
+        display: inline-block;
+        margin: 2px 0;
+    }
+    .cert-input {
+        width: 100%;
+    }
+    .cert-actions {
+        flex-direction: column;
+    }
+}
